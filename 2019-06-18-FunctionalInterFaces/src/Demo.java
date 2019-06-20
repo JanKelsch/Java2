@@ -21,7 +21,7 @@ public class Demo {
 
 		Countable c = (a, b) -> a + b;
 
-		Countable c1 = (a, b) -> { // c1=c2 (different realisation)
+		Countable c1 = (a, b) -> { // c1=c2 (different realization)
 			if (a > b) {
 				return a + b;
 			} else {
