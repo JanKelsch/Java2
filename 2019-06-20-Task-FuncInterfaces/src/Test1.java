@@ -11,10 +11,10 @@ public class Test1 {
 		StringConcate sc = (a, b) -> a + "" + b;
 		System.out.println(sc.concat(x, y));
 
-		Checkable c1 = str -> str.length() == 3 ? true : false;
+		Checkable c1 = str -> str.length() == 3;
 		System.out.println(c1.check(j));
 
-		Checkable c2 = str -> str.length() % 2 == 0 ? true : false;
+		Checkable c2 = str -> str.length() % 2 == 0;
 		System.out.println(c2.check(j));
 
 		Transformable tr = str -> str.toUpperCase();

@@ -17,10 +17,10 @@ public class Test2HW {
 		BiFunction<Integer, Integer, String> bf2 = (a, b) -> a + "" + b;
 		System.out.println(bf2.apply(x, y));
 
-		Predicate<String> pred1 = str -> str.length() == 3 ? true : false;
+		Predicate<String> pred1 = str -> str.length() == 3;
 		System.out.println(pred1.test(j));
 
-		Predicate<String> perd2 = str -> str.length() % 2 == 0 ? true : false;
+		Predicate<String> perd2 = str -> str.length() % 2 == 0;
 		System.out.println(perd2.test(j));
 
 		Consumer<String> cons1 = str -> System.out.println(str.toUpperCase());
