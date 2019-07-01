@@ -6,8 +6,8 @@ public class ArrayIterator implements Iterator<Object> {
 	int size;
 	int currIndex = 0;
 
-	ArrayIterator(Object[] arr2, int size) {
-		this.arr = arr2;
+	ArrayIterator(Object[] arr, int size) {
+		this.arr = arr;
 		this.size = size;
 	}
 

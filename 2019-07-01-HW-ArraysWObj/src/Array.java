@@ -23,18 +23,18 @@ public class Array implements Iterable<Object> {
 		return size == 0;
 	}
 
-	public int indexOf(Object number) {
+	public int indexOf(Object obj) {
 		for (int i = 0; i < size; i++) {
-			if (arr[i] == number) {
+			if (arr[i] == obj) {
 				return i;
 			}
 		}
 		return -1;
 	}
 
-	public int lastIndexOf(Object number) {
+	public int lastIndexOf(Object obj) {
 		for (int i = size - 1; i >= 0; i--) {
-			if (arr[i] == number) {
+			if (arr[i] == obj) {
 				return i;
 			}
 		}
@@ -48,38 +48,38 @@ public class Array implements Iterable<Object> {
 		return -1;
 	}
 
-	public Object set(int index, Object number) {
+	public Object set(int index, Object obj) {
 		Object oldValue = -1;
 		if (index < size) {
 			oldValue = arr[index];
-			arr[index] = number;
+			arr[index] = obj;
 		}
 		return oldValue;
 	}
 
-	public boolean add(Object number) {
+	public boolean add(Object obj) {
 		ensureCapacity();
-		arr[size] = number;
+		arr[size] = obj;
 		size++;
 		return true;
 	}
 
-	public boolean addAtPosition(int index, Object number) {
+	public boolean addAtPosition(int index, Object obj) {
 		if (index >= size) {
 			return false;
 		}
 		ensureCapacity();
 		Object[] oldArr = copyArray(size);
 		size++;
-		arr[index] = number;
+		arr[index] = obj;
 		for (int i = index + 1; i < size; i++) {
 			arr[i] = oldArr[i - 1];
 		}
 		return true;
 	}
 
-	public Object remove(Object number) {
-		int foundIndex = indexOf(number);
+	public Object remove(Object obj) {
+		int foundIndex = indexOf(obj);
 		if (foundIndex == -1) {
 			return -1;
 		}
