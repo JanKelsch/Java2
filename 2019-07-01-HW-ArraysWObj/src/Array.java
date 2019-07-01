@@ -48,7 +48,7 @@ public class Array implements Iterable<Object> {
 		return -1;
 	}
 
-	public Object set(int index, int number) {
+	public Object set(int index, Object number) {
 		Object oldValue = -1;
 		if (index < size) {
 			oldValue = arr[index];
@@ -57,14 +57,14 @@ public class Array implements Iterable<Object> {
 		return oldValue;
 	}
 
-	public boolean add(int number) {
+	public boolean add(Object number) {
 		ensureCapacity();
 		arr[size] = number;
 		size++;
 		return true;
 	}
 
-	public boolean addAtPosition(int index, int number) {
+	public boolean addAtPosition(int index, Object number) {
 		if (index >= size) {
 			return false;
 		}
@@ -78,7 +78,7 @@ public class Array implements Iterable<Object> {
 		return true;
 	}
 
-	public Object remove(int number) {
+	public Object remove(Object number) {
 		int foundIndex = indexOf(number);
 		if (foundIndex == -1) {
 			return -1;
