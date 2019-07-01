@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Demo {
@@ -37,6 +38,24 @@ public class Demo {
 				.mapping(Person::getName,Collectors.toList()))); // #3
 		System.out.println("3) Group ages: " + groupAges);
 
+		Person p1 = new Person("Guffy");
+		Person p2 = new Person("Donald");
+		Person p3 = new Person("Pluto");
+		List<Person> persons3 = Arrays.asList(p1,p2,p3);
+		
+		List<BankAccount> ba = new ArrayList<>();
+		ba.add(new BankAccount("DE1111", p1));
+		ba.add(new BankAccount("FR2222", p2));
+		ba.add(new BankAccount("RU3333", p1));
+		ba.add(new BankAccount("UK4444", p3));
+		
+/*		Map<Person, BankAccount> getMap2 = persons3.stream()
+				.collect(Collectors.toMap(Person::getName, BankAccount::getIBANN)); // #4
+		System.out.println("4) Get map with BA = " + getMap2);*/
+		
+		List<String> ibanns = ba.stream().map(BankAccount::getIBANN).collect(Collectors.toList());
+		System.out.println("5) IBANNs: " + ibanns);
+		
 		List<String> list = Arrays.asList("Banana, banana, give me banana or boom!".split(" "));
         long counter= list.stream().filter(s-> s.toLowerCase().startsWith("b")).count(); // #6
         System.out.println("6) Sum of the words with the same letters: " + counter);
