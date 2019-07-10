@@ -104,8 +104,6 @@ public class Demo {
         System.out.println("All more than 1000? "+b);
         boolean c = employees.stream().anyMatch(p -> p.getSalary() > 5700);
         System.out.println("Anyone more than 2700? "+c);
-
-
     }
 
     public static Consumer<String> getPrinter() {
