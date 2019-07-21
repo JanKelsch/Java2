@@ -36,8 +36,9 @@ public class BAValidator {
 	}
 
 	public static void validateCountryCode(BankAccount bankAccount) throws InvalidCountryIbanException {
-		if (bankAccount.getIban().substring(0, 2) != "DE") {
-			throw new InvalidCountryIbanException(bankAccount.getIban() + ": invalid country code = " + bankAccount.getIban().substring(0, 2));
+		if (!bankAccount.getIban().substring(0, 2).equals("DE")) {
+			throw new InvalidCountryIbanException(
+					bankAccount.getIban() + ": invalid country code = " + bankAccount.getIban().substring(0, 2));
 		}
 	}
 }
