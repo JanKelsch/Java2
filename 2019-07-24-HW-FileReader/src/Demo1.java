@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,7 +12,8 @@ public class Demo1 {
 	
 	public static void main(String[] args) {
 
-		sumOfNumbers(); // #1
+		File file = new File("sumOfInt.txt");
+		sumOfNumbers(file); // #1
 		
 		List<String> s = Arrays.asList("aaa","bbbb","a","bb");
 		System.out.println("2) Sorted strings: " + sortString(s)); // #2
@@ -27,8 +29,8 @@ public class Demo1 {
 		
 	}
 	
-	public static void sumOfNumbers() { // #1
-		try (BufferedReader br1 = new BufferedReader(new FileReader("sumOfInt.txt"));) {
+	public static void sumOfNumbers(File file) { // #1
+		try (BufferedReader br1 = new BufferedReader(new FileReader(file));) {
 			System.out.println("1) Sum of numbers: " + sumOfInt(br1));
 		} catch (Exception e) {
 			e.printStackTrace();
