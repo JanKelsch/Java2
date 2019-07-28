@@ -31,7 +31,7 @@ public class Demo1 {
 	
 	public static void sumOfNumbers(File file) { // #1
 		try (BufferedReader br1 = new BufferedReader(new FileReader(file));) {
-			System.out.println("1) Sum of numbers: " + sumOfInt(br1));
+			sumOfInt(br1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -54,7 +54,7 @@ public class Demo1 {
 			br2.lines()
 				.map(Demo1::createPersonFromString)
 				.sorted(Comparator.comparing(Person::getAge))
-				.forEach(p -> System.out.println("3) Sorted persons by age: " + createStringFromPerson(p)));
+				.forEach(p -> createStringFromPerson(p));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -78,7 +78,6 @@ public class Demo1 {
 			list.stream()
 				.sorted(Comparator.comparing(Customer::getAge))	
 				.forEach(customer -> writer.println(createStringFromCustomer(customer)));
-			System.out.println("Customers.csv is created");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
