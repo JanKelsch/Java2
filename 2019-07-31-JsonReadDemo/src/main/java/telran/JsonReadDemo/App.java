@@ -26,11 +26,7 @@ public class App {
 	public static void getSortedFairyTalePerson(File file) throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
 		Person[] persons = mapper.readValue(file, Person[].class);
-		Arrays.sort(persons, new Comparator<Person>() {
-			public int compare(Person o1, Person o2) {
-				return o1.getAge() - o2.getAge();
-			}
-		});
+		Arrays.sort(persons, Comparator.comparing(Person::getAge));
 		System.out.println(Arrays.asList(persons));
 	}
 }

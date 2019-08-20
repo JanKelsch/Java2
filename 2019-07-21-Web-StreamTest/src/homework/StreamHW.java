@@ -1,7 +1,6 @@
 package homework;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.List;
@@ -39,7 +38,7 @@ public class StreamHW {
     public static List<User> getLimitedUserList(List<User> users, int limit) {
         return users
         		.stream()
-        		.limit(2)
+        		.limit(limit)
         		.collect(Collectors.toList());
     }
 
@@ -61,13 +60,13 @@ public class StreamHW {
         return integers
         		.stream()
         		.reduce((x1, x2) -> x1 + x2)
-        		.orElse(0);
+        		.get();
     }
 
     public static List<Integer> skip(List<Integer> integers, Integer toSkip) {
     	return integers
     			.stream()
-        		.skip(2)
+        		.skip(toSkip)
         		.collect(Collectors.toList());
     }
 
