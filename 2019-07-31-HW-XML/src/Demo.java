@@ -2,9 +2,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Demo {
     public static void main(String[] args) throws Exception {
@@ -18,6 +21,7 @@ public class Demo {
     }
 
     private static void readDataXML(Document doc) {
+        List<Person> persons = new ArrayList<>();
         NodeList personNodes = doc.getElementsByTagName("person");
         for (int i = 0; i < personNodes.getLength(); i++) {
             Node personNode = personNodes.item(i);
@@ -26,11 +30,12 @@ public class Demo {
                 String personName = personElement.getElementsByTagName("name").item(0).getTextContent();
                 String personGender = personElement.getElementsByTagName("gender").item(0).getTextContent();
                 String personAddress = personElement.getElementsByTagName("address").item(0).getTextContent();
-
-                System.out.println("Name = " + personName);
-                System.out.println("Gender = " + personGender);
-                System.out.println("Address = " + personAddress);
+                Person p = new Person(personName, personGender, personAddress);
+                persons.add(p);
             }
+        }
+        for (Person p : persons) {
+            System.out.println(p);
         }
     }
 }
