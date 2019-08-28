@@ -21,7 +21,7 @@ public class Demo {
     }
 
     private static void readDataXML(Document doc) {
-        List<String> persons = new ArrayList<>();
+        List<Person> persons = new ArrayList<>();
         NodeList personNodes = doc.getElementsByTagName("person");
         for (int i = 0; i < personNodes.getLength(); i++) {
             Node personNode = personNodes.item(i);
@@ -30,12 +30,11 @@ public class Demo {
                 String personName = personElement.getElementsByTagName("name").item(0).getTextContent();
                 String personGender = personElement.getElementsByTagName("gender").item(0).getTextContent();
                 String personAddress = personElement.getElementsByTagName("address").item(0).getTextContent();
-                persons.add(personName);
-                persons.add(personGender);
-                persons.add(personAddress);
+                Person p = new Person(personName, personGender, personAddress);
+                persons.add(p);
             }
         }
-        for (String p : persons) {
+        for (Person p : persons) {
             System.out.println(p);
         }
     }
