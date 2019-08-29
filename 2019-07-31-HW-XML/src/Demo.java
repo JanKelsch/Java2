@@ -27,11 +27,13 @@ public class Demo {
             Node personNode = personNodes.item(i);
             if (personNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element personElement = (Element) personNode;
-                String personName = personElement.getElementsByTagName("name").item(0).getTextContent();
-                String personGender = personElement.getElementsByTagName("gender").item(0).getTextContent();
-                String personAddress = personElement.getElementsByTagName("address").item(0).getTextContent();
-                Person p = new Person(personName, personGender, personAddress);
-                persons.add(p);
+                String name = personElement.getElementsByTagName("name").item(0).getTextContent();
+                String gender = personElement.getElementsByTagName("gender").item(0).getTextContent();
+                String street = personElement.getElementsByTagName("street").item(0).getTextContent();
+                int houseNumber = Integer.parseInt(personElement.getElementsByTagName("house_number").item(0).getTextContent());
+                Address address = new Address(street, houseNumber);
+                Person person = new Person(name, gender, address);
+                persons.add(person);
             }
         }
         for (Person p : persons) {

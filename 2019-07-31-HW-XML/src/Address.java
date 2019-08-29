@@ -6,4 +6,9 @@ public class Address {
         this.street = street;
         this.houseNumber = houseNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Address: street - " + street + ", house number - " + houseNumber + ". \n";
+    }
 }

@@ -1,9 +1,9 @@
 public class Person {
     private String name;
     private String gender;
-    private String address;
+    private Address address;
 
-    public Person(String name, String gender, String address) {
+    public Person(String name, String gender, Address address) {
         this.name = name;
         this.gender = gender;
         this.address = address;
@@ -11,6 +11,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Name = " + name + ", gender = " + gender + ", \n" + "address = " + address;
+        return "Name = " + name + ", gender = " + gender + ", \n" + address;
     }
 }
